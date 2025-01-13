@@ -2,12 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Icon = ({ icon, url, number, text }) => {
+const Icon = ({ icon, onClick, url, number, text }) => {
   const navigate = useNavigate();
 
   return (
     <Wrapper
       onClick={() => {
+        onClick && onClick();
         url && navigate(url);
       }}
     >
