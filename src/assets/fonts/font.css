@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "proximanova";
+  font-weight: 100;
+  src: url("./proximanova_light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "proximanova";
+  font-weight: 300;
+  src: url("./proximanova_regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "proximanova";
+  font-weight: 500;
+  src: url("./proximanova_bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "proximanova";
+  font-weight: 700;
+  src: url("./proximanova_extrabold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "proximanova";
+  font-weight: 900;
+  src: url("./proximanova_black.otf") format("opentype");
+}

@@ -38,14 +38,16 @@ const Number = styled.div`
   font-size: 11px;
   position: absolute;
   right: 0px;
-  bottom: 2px;
+  bottom: 0px;
   width: 16px;
   height: 16px;
   border-radius: 8px;
   background-color: black;
   color: white;
+  font-weight: 100;
 `;
 
 const Text = styled.div`
   font-size: 14px;
+  margin-left: 4px;
 `;

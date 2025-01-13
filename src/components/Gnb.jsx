@@ -17,7 +17,7 @@ const Gnb = () => {
           <SearchIcon />
           <SearchText>Search</SearchText>
         </SearchBar>
-        <Link to="/">
+        <Link to="/" style={{ display: "flex" }}>
           <Logo fill="black" />
         </Link>
         <Icons>
@@ -64,10 +64,11 @@ const Icons = styled.div`
   display: flex;
   align-items: center;
   justify-content: right;
-  gap: 10px;
+  gap: 8px;
   width: 338px;
 `;
 
 const SearchText = styled.span`
   color: ${(props) => props.theme.gray03};
+  font-weight: 100;
 `;
