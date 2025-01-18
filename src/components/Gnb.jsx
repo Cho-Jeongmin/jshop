@@ -10,18 +10,18 @@ import Icon from "atoms/Icon";
 import SearchWindow from "./SearchWindow";
 import SearchBar from "./SearchBar";
 import CenterLayout from "./CenterLayout";
+import CategoryBar from "./CategoryBar";
 
 const Gnb = () => {
   const [isSearching, setIsSearching] = useState(false);
-  const openSearch = () => setIsSearching(true);
-  const closeSearch = () => setIsSearching(false);
 
   return (
     <Wrapper>
       <CenterLayout>
         <Inner>
           <SearchBar
-            openSearch={openSearch}
+            isSearching={isSearching}
+            setIsSearching={setIsSearching}
             placeholder="Search"
             width="338px"
           />
@@ -36,14 +36,22 @@ const Gnb = () => {
           </Icons>
         </Inner>
       </CenterLayout>
-      {isSearching && <SearchWindow closeSearch={closeSearch} />}
+      {isSearching && (
+        <SearchWindow
+          isSearching={isSearching}
+          setIsSearching={setIsSearching}
+        />
+      )}
+      <CategoryBar />
     </Wrapper>
   );
 };
 
 export default Gnb;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  background-color: white;
+`;
 
 const Inner = styled.div`
   display: flex;

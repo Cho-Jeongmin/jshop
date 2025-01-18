@@ -2,20 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { ReactComponent as SearchIcon } from "assets/icons/search.svg";
 
-const SearchBar = ({ openSearch, placeholder, width }) => {
+const SearchBar = ({ isSearching, setIsSearching, placeholder, width }) => {
   const onClick = () => {
-    if (openSearch !== undefined) openSearch();
+    if (!isSearching) setIsSearching(true);
   };
 
   return (
-    <Wrapper onClick={onClick} isSlide={openSearch === undefined} width={width}>
+    <Wrapper onClick={onClick} isSlide={isSearching} width={width}>
       <div className="icon-wrapper">
         <SearchIcon />
       </div>
       <input
         className="search-input"
         placeholder={placeholder}
-        autoFocus={openSearch === undefined}
+        autoFocus={isSearching}
       />
     </Wrapper>
   );
@@ -58,6 +58,7 @@ const Wrapper = styled.div`
   }
 
   div.icon-wrapper {
+    display: flex;
     ${(props) => props.isSlide && "transform: translateX(-26px);"}
     ${(props) => props.isSlide && "animation: 0.3s slide-left;"}
   }

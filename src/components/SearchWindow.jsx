@@ -44,17 +44,18 @@ const mockData = [
   },
 ];
 
-const SearchWindow = ({ closeSearch }) => {
+const SearchWindow = ({ isSearching, setIsSearching }) => {
   return (
     <Wrapper>
       <CenterLayout>
         <Inner>
           <Top>
             <SearchBar
+              isSearching={isSearching}
               placeholder="Search By Brands, Product or Category"
               width="100%"
             />
-            <Icon icon={<CloseIcon />} onClick={closeSearch} />
+            <Icon icon={<CloseIcon />} onClick={() => setIsSearching(false)} />
           </Top>
           <Bottom>
             {mockData.map((rank, index) => (
@@ -83,6 +84,7 @@ const Wrapper = styled.div`
   position: fixed;
   top: 0;
   background-color: white;
+  z-index: 2;
   width: 100vw;
 `;
 
@@ -116,7 +118,7 @@ const Rank = styled.div`
     left: -40px;
     height: 100%;
     width: 0px;
-    border-left: 1px solid rgb(228, 231, 236);
+    border-left: 1px solid ${(props) => props.theme.gray04};
   }
 `;
 
@@ -124,12 +126,12 @@ const RankTitle = styled.div`
   font-size: 18px;
   margin-bottom: 24px;
 `;
-const RankList = styled.div`
+const RankList = styled.li`
   display: flex;
   flex-direction: column;
   gap: 16px;
 `;
-const RankRow = styled.div`
+const RankRow = styled.ul`
   opacity: 0;
   display: flex;
   align-items: center;
